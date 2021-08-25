@@ -1,5 +1,7 @@
 // módulos da plataforma
 import path from 'path'
+import { dirname } from 'path';
+import { fileURLToPath } from 'url';
 
 // módulos npm
 import express from 'express'
@@ -23,7 +25,8 @@ import zombies from './routes/zombies.js'
 
 
 const app = express()
-const __dirname = new URL('.', import.meta.url).pathname
+// const __dirname = new URL('.', import.meta.url).pathname
+const __dirname = dirname(fileURLToPath(import.meta.url));
 
 // configura a pasta que contém as views e o handlebars como templating engine
 app.set('views', `${__dirname}/views`)
